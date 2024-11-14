@@ -322,12 +322,17 @@ body {
 
 .general-p-reg {
   font-size: 1.3rem; /* Adjust this value for larger font size */
-  line-height: 1.2; /* Sets line spacing to 1 */
+  line-height: 1.5; /* Sets line spacing to 1 */
 }
 
 .general-p-sm {
   font-size: 1rem; /* Adjust this value for larger font size */
-  line-height: 1.2; /* Sets line spacing to 1 */
+  line-height: 1.5; /* Sets line spacing to 1 */
+}
+
+.general-p-ssm {
+  font-size: 0.9rem; /* Adjust this value for larger font size */
+  line-height: 1.5; /* Sets line spacing to 1 */
 }
 
 /* Media query for even smaller screens */
@@ -335,6 +340,12 @@ body {
   .general-p-reg {
     font-size: 1rem; /* Adjust for smaller screens */
   }
+
+  .general-p-ssm {
+    font-size: 0.7rem; /* Adjust this value for larger font size */
+    line-height: 1; /* Sets line spacing to 1 */
+  }
+
   .general-text-header-big {
     font-family: "Merriweather", serif; /* Use Merriweather for H4 */
     font-size: 1.5rem; /* Responsive font size */
@@ -344,6 +355,11 @@ body {
 @media (max-width: 700px) {
   .general-p-reg {
     font-size: 0.8rem; /* Adjust for smaller screens */
+  }
+
+  .general-p-ssm {
+    font-size: 0.6rem; /* Adjust this value for larger font size */
+    line-height: 1; /* Sets line spacing to 1 */
   }
   .general-text-header-big {
     font-family: "Merriweather", serif; /* Use Merriweather for H4 */
@@ -741,6 +757,7 @@ body {
   .custom-image-box-d {
     margin-right: 5%;
     margin-left: 5%;
+    max-height: 300px; /* Optional limit for image height on mobile */
   }
 
   /* Ensure Custom Image A comes before Text Box A */
@@ -1023,7 +1040,7 @@ body {
   font-size: clamp(1.8rem, 5vw, 3rem); /* Scale but limit max size */
   line-height: 1.2; /* Adjust line height if needed */
   margin-bottom: 2%; /* Remove default margin */
-  margin-left: 5%; /* Remove default margin */
+  margin-left: 3%; /* Remove default margin */
   color: black; /* Ensure the text color is black */
 }
 
