@@ -322,12 +322,12 @@ body {
 
 .general-p-reg {
   font-size: 1.3rem; /* Adjust this value for larger font size */
-  line-height: 1; /* Sets line spacing to 1 */
+  line-height: 1.2; /* Sets line spacing to 1 */
 }
 
 .general-p-sm {
   font-size: 1rem; /* Adjust this value for larger font size */
-  line-height: 1; /* Sets line spacing to 1 */
+  line-height: 1.2; /* Sets line spacing to 1 */
 }
 
 /* Media query for even smaller screens */
@@ -624,6 +624,7 @@ body {
   white-space: normal; /* Allow text to wrap */
 }
 
+/* text boxes with nuber suffix has main attributes across all pages */
 .custom-text-box {
   display: flex;
   flex-direction: column;
@@ -632,6 +633,7 @@ body {
   overflow: hidden; /* Prevent overflow */
 }
 
+/* boxes with alphabet suffix for additional modifiers*/
 /* box-a and box-b are used as full size width while box-c and box-d for controlled width*/
 /* box-d text box on the left and image box on the right */
 .custom-text-box-c {
@@ -640,7 +642,9 @@ body {
   /*justify-content: center;*/
   margin-left: 10%;
   margin-right: 5%;
+  gap: 5px !important; /* Adjust gap for spacing between elements */
   font-size: clamp(0.9rem, 1.2vw, 0.6rem); /* Adjusted for better scaling */
+  line-height: 1.2; /* Set line height for single spacing */
   box-sizing: border-box;
   display: flex; /* Make it a flex container */
   flex-direction: column; /* Allow vertical stacking */
@@ -700,7 +704,7 @@ body {
     1.2vw,
     1.5rem
   ) !important; /* Scale font size within a range */
-  padding: clamp(12px, 2vw, 20px) clamp(15px, 2.5vw, 25px) !important; /* Responsive padding */
+  padding: clamp(10px, 2vw, 18px) clamp(12px, 2.5vw, 20px) !important; /* Responsive padding */
   font-family: "Pontano Sans", sans-serif; /* Set the font */
   width: auto;
 }
@@ -709,7 +713,8 @@ body {
   display: flex;
   justify-content: left; /* Left-align horizontally */
   align-items: center; /* Center vertically (if needed) */
-  margin: 10px 0; /* Optional: margin for spacing */
+  margin: 3% 0; /* Optional: margin for spacing */
+  margin-left: 5%;
 }
 
 /* Responsiveness for smaller screens */
@@ -719,7 +724,9 @@ body {
   }
 
   .custom-flex-row,
-  .custom-flex-row-90 {
+  .custom-flex-row-90,
+  .custom-flex-row-90-ht-120,
+  .custom-flex-row-90-ht-140 {
     flex-direction: column; /* Stack elements vertically */
     height: auto; /* Allow height to adjust */
   }
@@ -728,6 +735,12 @@ body {
   .custom-image-box {
     width: 100%; /* Full width for mobile */
     padding: 10px 0; /* Adjust spacing for stacked view */
+  }
+
+  .custom-image-box-c,
+  .custom-image-box-d {
+    margin-right: 5%;
+    margin-left: 5%;
   }
 
   /* Ensure Custom Image A comes before Text Box A */
@@ -744,13 +757,15 @@ body {
   }
 
   /* Ensure Custom Image B comes before Text Box B */
-  .custom-image-box-b {
+  .custom-image-box-b,
+  .custom-image-box-c {
     order: 0; /* Move image B to be first */
     flex: 0 0 auto; /* Allow height to adjust */
     max-height: 300px; /* Optional limit for image height on mobile */
   }
 
-  .custom-text-box-b {
+  .custom-text-box-b,
+  .custom-text-box-c {
     order: 1; /* Move text box B to be second */
     flex: 1; /* Allow text box to grow */
     margin-left: 5vw;
