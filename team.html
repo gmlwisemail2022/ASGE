@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Asia SGE | Your Trusted Partner in Worldwide Business Growth</title>
+    <link rel="stylesheet" href="temp.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Merriweather Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pontano+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- load external header -->
+    <div id="header"></div>
+
+    <!-- page contents other than header and footer here -->
+    <!-- New content section (homepage headline) -->
+    <div class="team-main-content">
+      <img
+        src="assets\femalekakashi_Photorealistic_8k_image_shot_with_Fujifilm_X-T4_2_79f71414-9fe7-493b-95cd-e2cb90e2127a.png"
+        alt="Portfolio"
+        class="team-main-content-image"
+      />
+      <div class="overlay"></div>
+      <!-- Overlay for darkening effect -->
+      <h1 class="team-title">An experienced team to support your needs</h1>
+    </div>
+
+    <!-- other content section (homepage body) -->
+    <div class="blank-padding-20"></div>
+    <div class="team-intro">
+      <div class="blank-padding-20"></div>
+      <!--note: used the general custom-text-header-->
+      <p class="custom-text-header">Our Leadership Team</p>
+    </div>
+    <div class="team-card-container">
+      <div class="team-card">
+        <img
+          src="assets\1589873676072.jpg"
+          alt="Image 1"
+          class="team-card-image"
+        />
+        <h2 class="team-card-title">Managing Partner<br />Ben Berenson</h2>
+        <p class="team-card-description">
+          An entrepreneur at heart, with a track record in taking projects from
+          thought to revenue.
+        </p>
+        <p class="team-card-description">
+          Originally from Israel, Ben has spent the past 15 years working
+          closely with HNIs, business owners and investors globally, developing
+          relationships and a deep, holistic knowledge in all aspects of
+          financial solutions.
+        </p>
+        <div class="team-links">
+          <a href="mailto:ben.berenson@asiasge.com" class="contact-link"
+            >Email</a
+          >
+          <a href="https://www.linkedin.com/in/bberenson/" class="contact-link"
+            >LinkedIn</a
+          >
+        </div>
+      </div>
+      <div class="team-card">
+        <img
+          src="assets\1616755948967.jpg"
+          alt="Image 1"
+          class="team-card-image"
+        />
+        <h2 class="team-card-title">
+          Partner- Finance<br />
+          Mario Giangrande
+        </h2>
+        <p class="team-card-description">
+          An Ironman athlete, with over 20 years of management experience with
+          Fortune 500 companies across Asia, Europe, and Africa.
+        </p>
+        <p class="team-card-description">
+          Successfully set up businesses, finance, and operations for start-ups,
+          enabling their growth. Leading Negotiator in acquisitions for multiple
+          family offices.
+        </p>
+        <div class="team-links">
+          <a href="mailto:mario.giangrande@asiasge.com" class="contact-link"
+            >Email</a
+          >
+          <a
+            href="https://www.linkedin.com/in/mariogiangrande/"
+            class="contact-link"
+            >LinkedIn</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="action-button-container">
+      <a href="/schedule" class="btn btn-primary action-button">Let's Chat</a>
+    </div>
+    <div class="blank-padding-20"></div>
+
+    <!--load external footer -->
+    <div id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS for Dropdown -->
+    <script>
+      // Load header
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+
+          // Now that the header is loaded, attach the event listeners
+          $(".navbar-toggler").click(function () {
+            $("#navbarDropdown").toggleClass("show");
+          });
+
+          $(".close-dropdown").click(function () {
+            $("#navbarDropdown").removeClass("show");
+          });
+        });
+
+      // Load footer
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Asia SGE | Your Trusted Partner in Worldwide Business Growth</title>
+    <link rel="stylesheet" href="temp.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f8f9fa;
+      }
+
+      .calendly-inline-widget {
+        min-width: 320px;
+        height: 630px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- load external header -->
+    <div id="header"></div>
+
+    <div class="container">
+      <div class="appointment-card">
+        <h1>Book an Appointment</h1>
+        <h3>Ben Berenson</h3>
+        <p>Introduction</p>
+        <p>Duration: 30 min</p>
+        <p>Web conferencing details provided upon confirmation.</p>
+
+        <h4>Select a Date & Time</h4>
+        <!-- Calendly Widget -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/your-calendly-username" style="min-width:320px;height:630px;"></div>
+      </div>
+    </div>
+
+    <div class="blank-padding-20"></div>
+
+    <!--load external footer -->
+    <div id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js"></script>
+    <script>
+      // Load header
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+        });
+
+      // Load footer
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+
+      // Initialize flatpickr for any other date inputs if needed
+      flatpickr("#appointment-date", {
+        minDate: "today", // Start from today
+        dateFormat: "Y-m-d", // Format for the date
+      });
+    </script>
+  </body>
+</html>

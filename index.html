@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Asia SGE | Your Trusted Partner in Worldwide Business Growth</title>
+    <link rel="stylesheet" href="temp.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Merriweather Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pontano+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="background-content">
+      <!-- load external header -->
+      <div id="header"></div>
+
+      <!-- page contents other than header and footer here -->
+      <!-- New content section (homepage headline) -->
+      <div class="home-content">
+        <h1 class="home-title">Building your Vision. Anywhere.</h1>
+        <h4 class="home-subtitle">Founded by Doers for Innovators</h4>
+        <div class="blank-padding-20"></div>
+        <a href="/schedule" class="btn btn-primary action-button"
+          >Schedule an Introductory Call Now</a
+        >
+      </div>
+    </div>
+
+    <!-- other content section (homepage body) -->
+    <h2 class="content-title">Our Areas of Expertise</h2>
+    <div class="image-container">
+      <div class="image-item">
+        <div class="image-wrapper">
+          <img
+            src="assets/strong+peaks.png"
+            alt="Portfolio"
+            class="portfolio-image"
+          />
+        </div>
+        <a class="image-label" href="/solutions">Bespoke Solutions</a>
+      </div>
+
+      <div class="image-item">
+        <div class="image-wrapper">
+          <img
+            src="assets/volcano+winter.png"
+            alt="Portfolio"
+            class="portfolio-image"
+          />
+        </div>
+        <a class="image-label" href="/solutions">Company Incorporation</a>
+      </div>
+
+      <div class="image-item">
+        <div class="image-wrapper">
+          <img
+            src="assets/photorealistic_image_shot_with_Sony_A9,_18_mm_lens,_coniferous_forest_landscape,_soft_light,_calming,_wonder,_adventure_aspect_ratio_16_9.png"
+            alt="Portfolio"
+            class="portfolio-image"
+          />
+        </div>
+        <a class="image-label" href="/solutions">Structuring Advisory</a>
+      </div>
+    </div>
+
+    <div class="action-button-container">
+      <a href="/schedule" class="btn btn-primary action-button"
+        >Explore all our services</a
+      >
+    </div>
+
+    <div class="blank-padding-10"></div>
+    <!-- end of page specific body -->
+
+    <!-- Unique Flex Section for Additional Content -->
+    <div class="custom-flex-section">
+      <!-- First Row -->
+      <div class="custom-flex-row">
+        <div class="custom-text-box custom-text-box-a">
+          <h3 class="custom-text-header">Why Asia SGE?</h3>
+          <p>
+            Our team brings together a diverse set of skills and global
+            experience, drawn from Fortune 500 companies, successful startups as
+            well as family offices.
+          </p>
+          <p>
+            Combining our vast experience and expert network of vetted advisors
+            and service providers, we strategically design and implement
+            solutions to enhance the efficiency and productivity of our clients'
+            lives.
+          </p>
+          <div class="custom-button-container">
+            <a href="/contact" class="btn btn-primary custom-button"
+              >Learn More About Us</a
+            >
+          </div>
+        </div>
+        <div class="custom-image-box custom-image-box-a">
+          <img src="assets\string+peaks+and+river.png" alt="Image A" />
+        </div>
+      </div>
+
+      <!-- Second Row -->
+      <div class="custom-flex-row">
+        <div class="custom-image-box custom-image-box-b">
+          <img
+            src="assets\femalekakashi_Photorealistic_8k_image_shot_with_Fujifilm_X-T4_1_1784db36-e801-4400-a7a8-f232da382020.png"
+            alt="Image B"
+          />
+        </div>
+        <div class="custom-text-box custom-text-box-b">
+          <h3 class="custom-text-header">Why have us in your corner?</h3>
+          <p>
+            At Asia SGE, we recognize that every client is unique. That’s why we
+            don’t offer a generic menu of services.
+          </p>
+          <p>
+            We invite you to share your aspirations and challenges, and we will
+            design a customized solution set exclusively for you.
+          </p>
+          <p>
+            As your trusted advisors and experts in our field, our mission is to
+            help you navigate the complexities of business and finance with
+            confidence and ease.
+          </p>
+          <div class="custom-button-container">
+            <a href="/contact" class="btn btn-primary custom-button"
+              >Learn about our solutions</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--load external footer -->
+    <div id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS for Dropdown -->
+    <script>
+      // Load header
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+
+          // Now that the header is loaded, attach the event listeners
+          $(".navbar-toggler").click(function () {
+            $("#navbarDropdown").toggleClass("show");
+          });
+
+          $(".close-dropdown").click(function () {
+            $("#navbarDropdown").removeClass("show");
+          });
+        });
+
+      // Load footer
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+  </body>
+</html>

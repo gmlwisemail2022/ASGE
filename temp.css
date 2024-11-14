@@ -1,0 +1,1431 @@
+body {
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+  font-size: 1rem; /* Base font size for scaling */
+}
+
+.navbar {
+  position: relative; /* Keep the navbar in its normal flow */
+  z-index: 1000; /* Ensure the navbar is above the background */
+}
+
+.background-content {
+  position: relative; /* Position relative to allow for absolutely positioned pseudo-element */
+  height: 90vh; /* Full viewport height */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.background-content::before {
+  content: ""; /* Necessary for pseudo-element */
+  position: absolute; /* Position it absolutely */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("assets/mountain+light.png"); /* Background image */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  opacity: 0.5; /* Set desired opacity for the background */
+  z-index: -1; /* Send it to the back */
+}
+
+.content {
+  position: relative; /* Position the content relative to the body */
+  z-index: 10; /* Ensure content is above the background */
+  color: white; /* Default text color */
+  text-align: center; /* Center text */
+  padding-top: 5vh; /* Space for the navbar */
+}
+
+.overlay-image {
+  width: 10vw; /* Set desired width for the image */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 2vh; /* Space above the image */
+}
+
+.white-text {
+  color: white; /* White text color */
+  font-size: 24px; /* Adjust font size as needed */
+  margin: 10px 0; /* Space around the text */
+}
+
+/* Existing CSS styles */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0.5vw;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.header-nav-list {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  max-width: 50%;
+}
+
+.header-nav-list .nav-link {
+  color: black; /* Change to your desired color */
+  text-decoration: none; /* Remove underline */
+  font-size: 1rem;
+}
+
+.desktop-buttons {
+  display: flex; /* Aligns buttons in a row */
+  gap: 1vw; /* Space between buttons */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+}
+
+.linkedin-button {
+  display: inline-flex; /* Aligns SVG and text */
+  align-items: center; /* Center vertically */
+  padding: 8px 12px; /* Add some padding for the button */
+  background-color: transparent; /* Set background to transparent */
+  color: black; /* Default text color */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s, color 0.3s; /* Transition for hover effect */
+}
+
+.linkedin-button svg {
+  margin-right: 5px; /* Space between icon and text */
+  fill: currentColor; /* Inherit text color */
+}
+
+.linkedin-text {
+  color: black; /* Set text color for 'in' */
+}
+
+.linkedin-button:hover {
+  background-color: #bab7b7; /* Light gray background on hover */
+  color: black; /* Keep text color black on hover */
+}
+
+.get-in-touch-button {
+  font-size: 1.5rem !important; /* Adjust this value to make the font larger */
+  padding: 10px 10px; /* Optional: adjust padding for better spacing */
+  font-family: "Pontano Sans", sans-serif; /* Set the font */
+}
+
+/* Burger Button Styles */
+.burger-box {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 5vw;
+  height: 5vw;
+  cursor: pointer;
+}
+
+.burger-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.top-bun,
+.patty,
+.bottom-bun {
+  background-color: black;
+  height: 0.5vw;
+  width: 3vw;
+  border-radius: 1vw;
+  transition: background-color 0.3s;
+}
+
+.navbar-toggler {
+  background: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.navbar-toggler:hover .top-bun,
+.navbar-toggler:hover .patty,
+.navbar-toggler:hover .bottom-bun {
+  background-color: black;
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 800px) {
+  .header-nav-list,
+  .desktop-buttons {
+    display: none;
+  }
+
+  .burger-box {
+    display: block;
+  }
+
+  /* Dropdown visibility */
+  .navbar-dropdown {
+    display: none;
+    position: absolute;
+    top: 10vw;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding-top: 1rem;
+    z-index: 1000;
+  }
+
+  .navbar-dropdown.show {
+    display: block;
+  }
+
+  .dropdown-item,
+  .close-dropdown {
+    padding: 2vh 5vw;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .dropdown-item {
+    padding: 2vh 5vw; /* Increased padding for dropdown items */
+    width: 100%; /* Full width */
+    text-align: center; /* Center text */
+    justify-content: center; /* Center content */
+    color: #333; /* Text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 2rem; /* Increased font size for mobile */
+    transition: background-color 0.3s; /* Smooth background transition */
+  }
+
+  .dropdown-item svg {
+    margin-right: 10px; /* Space between icon and text */
+    vertical-align: middle; /* Aligns icon with text */
+    fill: #080f70; /* Change color if necessary */
+  }
+
+  .dropdown-item:hover {
+    background-color: #f8f9fa;
+  }
+
+  /* Specific styles for the Get in Touch button in the dropdown */
+  .dropdown-get-in-touch-button {
+    font-size: 2rem; /* Font size for the button */
+    padding: 2vh 5vw; /* Padding for better touch targets */
+    margin-top: 0; /* Space around the button */
+    background-color: #007bff; /* Example background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+    display: block; /* Make it a block element for centering */
+    width: auto; /* Adjust width as needed */
+    max-width: 300px; /* Optional: set a max width */
+    margin-left: auto; /* Center the button */
+    margin-right: auto; /* Center the button */
+    margin-top: auto;
+    margin-bottom: 5vw;
+  }
+
+  /* Styles for the LinkedIn button to align with the Get in Touch button */
+  .linkedin-button {
+    display: inline-flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    padding-left: 2vw; /* Padding for the button */
+    margin-top: auto; /* Center the button */
+    color: black; /* Text color */
+    background-color: transparent; /* LinkedIn color */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 1rem; /* Font size for LinkedIn button */
+  }
+
+  /* Adding padding around the button's container for vertical centering */
+  .dropdown-divider {
+    margin: 1vw 0; /* Space above and below the divider */
+  }
+
+  .close-dropdown {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-align: right;
+  }
+}
+
+/* Desktop Mode */
+@media (min-width: 800px) {
+  .burger-box {
+    display: none;
+  }
+
+  .header-nav-list,
+  .desktop-buttons {
+    display: flex;
+  }
+
+  .navbar-dropdown {
+    display: none;
+  }
+}
+
+/* general styling */
+/* generic styling used across all web pages */
+.blank-padding-10 {
+  padding: 1vh; /* Adjust the value as needed */
+}
+
+.blank-padding-20 {
+  padding: 2vh; /* Adjust the value as needed */
+}
+
+.blank-padding-30 {
+  padding: 3vh; /* Adjust the value as needed */
+}
+/* wavy divider*/
+.wavy-line {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  height: 120px; /* Adjust height to provide space for the line */
+}
+.wavy-line svg {
+  display: block;
+  width: calc(100% + 1.3px); /* Adjusting for border */
+  height: 120px; /* Same as the container height */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.wavy-line path {
+  stroke: #87ceeb; /* Sky blue color */
+  stroke-width: 8; /* Thickness of the line */
+  fill: none; /* No fill, only stroke */
+}
+
+.general-text-header-big {
+  font-family: "Merriweather", serif; /* Use Merriweather for H4 */
+  font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
+  overflow: hidden; /* Prevent overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+  white-space: normal; /* Allow text to wrap */
+  line-height: 1.2; /* Adjust line height for better spacing */
+  max-width: 100%; /* Prevent overflow beyond container */
+}
+
+.general-p-reg {
+  font-size: 1.3rem; /* Adjust this value for larger font size */
+  line-height: 1; /* Sets line spacing to 1 */
+}
+
+.general-p-sm {
+  font-size: 1rem; /* Adjust this value for larger font size */
+  line-height: 1; /* Sets line spacing to 1 */
+}
+
+/* Media query for even smaller screens */
+@media (max-width: 1300px) {
+  .general-p-reg {
+    font-size: 1rem; /* Adjust for smaller screens */
+  }
+  .general-text-header-big {
+    font-family: "Merriweather", serif; /* Use Merriweather for H4 */
+    font-size: 1.5rem; /* Responsive font size */
+  }
+}
+
+@media (max-width: 700px) {
+  .general-p-reg {
+    font-size: 0.8rem; /* Adjust for smaller screens */
+  }
+  .general-text-header-big {
+    font-family: "Merriweather", serif; /* Use Merriweather for H4 */
+    font-size: 1.3rem; /* Responsive font size */
+  }
+}
+
+/* page specific contents below: */
+
+/* homepage content details*/
+.home-content {
+  position: absolute; /* Position absolutely within the background */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to truly center */
+  display: flex; /* Use flexbox for centered alignment */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  color: black; /* Text color */
+  text-align: center; /* Center text */
+  padding: 1vw; /* Add some padding */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+  z-index: 1; /* Ensure it appears above the background */
+  width: 90%; /* Increase width to 80% of the parent */
+  max-width: 90vw; /* Optional: set a maximum width */
+  overflow-wrap: break-word; /* Allow text to wrap */
+  word-break: break-word;
+}
+
+.home-title {
+  font-family: "Merriweather", serif; /* Use Merriweather for H4 */
+  font-size: clamp(2rem, 5vw, 4rem); /* Scale but limit max size */
+  line-height: 1.2; /* Adjust line height if needed */
+  margin-bottom: 2%; /* Remove default margin */
+  color: black; /* Ensure the text color is black */
+}
+.home-subtitle {
+  font-family: "Merriweather", serif; /* Use Merriweather for H4 */
+  font-size: 2vw; /* Size for the subtitle */
+  margin: 1rem 0; /* Space around subtitle */
+}
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+  .home-title {
+    font-size: 2.5rem; /* Smaller title size for mobile */
+    margin-bottom: 1vw; /* Space below title */
+  }
+
+  .home-subtitle {
+    font-size: 1rem; /* Smaller subtitle size for mobile */
+    margin: 1vw 0; /* Adjust margin for subtitle */
+  }
+
+  .home-content {
+    padding: 1vw; /* Adjust padding for mobile */
+    width: 90%; /* Slightly reduce width for mobile */
+  }
+}
+
+/* Further scaling down for smaller screens and higher zoom */
+@media (max-width: 600px) {
+  .home-content {
+    width: 90%;
+    padding: 6vw; /* Adjust for smaller screens */
+  }
+  .home-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+  }
+  .home-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+  }
+  .action-button {
+    font-size: clamp(
+      0.9rem,
+      2vw,
+      1.3rem
+    ); /* Reduce max size for smaller screens */
+    padding: clamp(6px, 0.8vw, 10px) clamp(8px, 1vw, 12px);
+  }
+}
+
+@media (max-width: 400px) {
+  .home-content {
+    padding: 7vw;
+  }
+  .home-title {
+    font-size: 1.5rem;
+  }
+  .home-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* more body content styling */
+
+.action-button {
+  font-size: clamp(
+    1.3rem,
+    1.2vw,
+    1.5rem
+  ) !important; /* Scale font size within a range */
+  padding: clamp(12px, 2vw, 20px) clamp(15px, 2.5vw, 25px) !important; /* Responsive padding */
+  font-family: "Pontano Sans", sans-serif; /* Set the font */
+  width: auto;
+  border-radius: 5px; /* Optional: add border radius for rounded corners */
+  background-color: blue; /* Optional: set a background color */
+  color: #fff; /* Optional: set text color */
+  border: none; /* Optional: remove border */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.action-button-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically (if needed) */
+  margin: 10px 0; /* Optional: margin for spacing */
+}
+
+.content-title {
+  font-family: "Merriweather", serif;
+  font-size: 3rem;
+  line-height: 1.2;
+  margin: 3%;
+  text-align: center;
+  color: black;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: space-around; /* Distribute space around items */
+  width: 100%;
+  padding: 20px;
+}
+
+.image-item {
+  display: flex;
+  flex-direction: column; /* Stack image and label vertically */
+  align-items: center; /* Center items */
+  margin: 20px; /* Space between items */
+}
+
+.image-wrapper {
+  position: relative;
+  width: 250px; /* Size for images */
+  height: 250px; /* Size for images */
+  border-radius: 50%; /* Round shape */
+  overflow: hidden; /* Hide overflow */
+}
+
+.portfolio-image {
+  position: absolute;
+  inset: 0; /* Full size of the wrapper */
+  object-fit: cover; /* Maintain aspect ratio */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  border-radius: 50%; /* Round shape */
+  z-index: 0; /* Place below the border overlay */
+}
+
+.image-label {
+  width: 2q0px; /* Match width of image wrapper */
+  text-align: center; /* Center the text */
+  font-size: 1.3rem; /* Font size for the label */
+  margin-top: 10px; /* Space between image and label */
+}
+
+/* Media query for screens below 800 pixels */
+@media (max-width: 800px) {
+  .image-container {
+    flex-direction: column; /* Stack images and labels vertically */
+    align-items: center; /* Center items */
+  }
+
+  .image-label {
+    font-size: 18px; /* Smaller font size for mobile */
+  }
+}
+
+/* Styles for screens above 800 pixels */
+@media (min-width: 801px) {
+  .image-container {
+    flex-direction: row; /* Align items in a row */
+  }
+}
+
+/* Styling for the custom flex section */
+.custom-flex-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Overall width with left margin */
+  margin: 0 auto;
+}
+
+/* Set the height of the row to 100vh */
+.custom-flex-row {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* Fixed height for both rows */
+  align-items: stretch; /* Ensure items stretch to fill height */
+  margin-bottom: 0; /* No padding between rows */
+}
+
+/* Set the height of the row to 90% */
+.custom-flex-row-90 {
+  display: flex;
+  width: 90%;
+  height: 100vh; /* Fixed height for both rows */
+  align-items: stretch; /* Ensure items stretch to fill height */
+  margin-bottom: 0; /* No padding between rows */
+}
+
+.custom-flex-row-90-ht-120 {
+  display: flex;
+  width: 90%;
+  height: 120vh; /* Fixed height for both rows */
+  align-items: stretch; /* Ensure items stretch to fill height */
+  margin-bottom: 0; /* No padding between rows */
+}
+
+.custom-flex-row-90-ht-140 {
+  display: flex;
+  width: 90%;
+  height: 140vh; /* Fixed height for both rows */
+  align-items: stretch; /* Ensure items stretch to fill height */
+  margin-bottom: 0; /* No padding between rows */
+}
+
+/* First Row: Text 45% and Image 55% */
+.custom-text-box-a {
+  flex: 0 0 45%; /* Fixed size for text box */
+  padding-right: 20px;
+  justify-content: center;
+  margin-left: 5%;
+  font-size: clamp(1.2rem, 1.2vw, 1.5rem); /* Adjusted for better scaling */
+  box-sizing: border-box;
+  display: flex; /* Make it a flex container */
+  flex-direction: column; /* Allow vertical stacking */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.custom-image-box-a {
+  flex: 0 0 55%; /* Fixed size for image box */
+  display: flex; /* Make it a flex container */
+  height: 100%; /* Ensure it occupies full height */
+}
+
+/* Second Row: Image 55% and Text 45% */
+.custom-image-box-b {
+  flex: 0 0 55%; /* Fixed size for image box */
+  display: flex; /* Make it a flex container */
+  height: 100%; /* Ensure it occupies full height */
+}
+
+.custom-text-box-b {
+  flex: 1; /* Allow it to grow and fill available space */
+  padding-left: 20px;
+  justify-content: center;
+  margin-left: 5%;
+  font-size: clamp(1.2rem, 1.2vw, 1.5rem); /* Adjusted for better scaling */
+  box-sizing: border-box;
+  display: flex; /* Make it a flex container */
+  flex-direction: column; /* Allow vertical stacking */
+  overflow: hidden; /* Prevent overflow */
+  min-height: 0; /* Allow it to shrink without restriction */
+  white-space: normal; /* Allow text to wrap */
+}
+
+/* Custom styling for text and images */
+.custom-text-header {
+  font-family: "Merriweather", serif; /* Use Merriweather for H4 */
+  font-size: clamp(2.5rem, 2vw, 1.5rem); /* Responsive font size */
+  overflow: hidden; /* Prevent overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+  white-space: normal; /* Allow text to wrap */
+}
+
+.custom-text-box {
+  display: flex;
+  flex-direction: column;
+  font-family: "Pontano Sans", sans-serif;
+  gap: 15px; /* Adjust gap for spacing between elements */
+  overflow: hidden; /* Prevent overflow */
+}
+
+/* box-a and box-b are used as full size width while box-c and box-d for controlled width*/
+/* box-d text box on the left and image box on the right */
+.custom-text-box-c {
+  flex: 0 0 55%; /* Fixed size for text box */
+  padding-right: 20px;
+  /*justify-content: center;*/
+  margin-left: 10%;
+  margin-right: 5%;
+  font-size: clamp(0.9rem, 1.2vw, 0.6rem); /* Adjusted for better scaling */
+  box-sizing: border-box;
+  display: flex; /* Make it a flex container */
+  flex-direction: column; /* Allow vertical stacking */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.custom-image-box-c {
+  flex: 0 0 35%; /* Fixed size for image box */
+  display: flex; /* Make it a flex container */
+  height: 100%; /* Ensure it occupies full height */
+  margin-right: 15%;
+}
+
+/* box-d image on the left and text box on the right */
+.custom-text-box-d {
+  flex: 0 0 45%; /* Fixed size for text box */
+  padding-right: 20px;
+  /*justify-content: center;*/
+  margin-right: 15%;
+  margin-left: 5%;
+  font-size: clamp(1rem, 1.2vw, 0.8rem); /* Adjusted for better scaling */
+  box-sizing: border-box;
+  display: flex; /* Make it a flex container */
+  flex-direction: column; /* Allow vertical stacking */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.custom-image-box-d {
+  flex: 0 0 35%; /* Fixed size for image box */
+  display: flex; /* Make it a flex container */
+  height: 100%; /* Ensure it occupies full height */
+  margin-left: 15%;
+}
+
+.custom-ol li {
+  margin-bottom: 1em; /* Add space between list items */
+}
+
+/* Custom styling for image boxes */
+.custom-image-box {
+  display: flex; /* Ensure image boxes are flex containers */
+  height: 100%; /* Ensure it occupies full height */
+}
+
+/* Image styling */
+.custom-image-box img {
+  width: 100%; /* Ensure image fills the width */
+  height: auto; /* Let height adjust to maintain aspect ratio */
+  max-height: 100%; /* Prevent images from exceeding container height */
+  object-fit: cover; /* Maintain aspect ratio, cover the box */
+}
+
+/* Styling for custom action button */
+.custom-button {
+  font-size: clamp(
+    1.3rem,
+    1.2vw,
+    1.5rem
+  ) !important; /* Scale font size within a range */
+  padding: clamp(12px, 2vw, 20px) clamp(15px, 2.5vw, 25px) !important; /* Responsive padding */
+  font-family: "Pontano Sans", sans-serif; /* Set the font */
+  width: auto;
+}
+
+.custom-button-container {
+  display: flex;
+  justify-content: left; /* Left-align horizontally */
+  align-items: center; /* Center vertically (if needed) */
+  margin: 10px 0; /* Optional: margin for spacing */
+}
+
+/* Responsiveness for smaller screens */
+@media (max-width: 800px) {
+  .custom-flex-section {
+    width: 100%; /* Remove extra margin on smaller screens */
+  }
+
+  .custom-flex-row,
+  .custom-flex-row-90 {
+    flex-direction: column; /* Stack elements vertically */
+    height: auto; /* Allow height to adjust */
+  }
+
+  .custom-text-box,
+  .custom-image-box {
+    width: 100%; /* Full width for mobile */
+    padding: 10px 0; /* Adjust spacing for stacked view */
+  }
+
+  /* Ensure Custom Image A comes before Text Box A */
+  .custom-image-box-a {
+    order: 0; /* Move image A to be first */
+    flex: 0 0 auto; /* Allow height to adjust */
+    max-height: 300px; /* Optional limit for image height on mobile */
+  }
+
+  .custom-text-box-a {
+    order: 1; /* Move text box A to be second */
+    flex: 1; /* Allow text box to grow */
+    margin-left: 5vw;
+  }
+
+  /* Ensure Custom Image B comes before Text Box B */
+  .custom-image-box-b {
+    order: 0; /* Move image B to be first */
+    flex: 0 0 auto; /* Allow height to adjust */
+    max-height: 300px; /* Optional limit for image height on mobile */
+  }
+
+  .custom-text-box-b {
+    order: 1; /* Move text box B to be second */
+    flex: 1; /* Allow text box to grow */
+    margin-left: 5vw;
+  }
+}
+
+/********************************/
+/** styling for solutions.html **/
+
+.solutions-main-content {
+  position: relative;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.solutions-main-content-image {
+  width: 100%; /* Ensure the image covers the full width */
+  height: 100%; /* Ensure the image covers the full height */
+  object-fit: cover; /* Cover the area without distortion */
+  /*opacity: 0.8; /* Set the desired opacity for the image */
+}
+
+.services-title {
+  position: absolute;
+  bottom: 20px; /* Slightly above the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust position to truly center */
+  font-family: "Merriweather", serif;
+  font-size: clamp(2.5rem, 10vw + 1rem, 5rem); /* Responsive font size */
+  color: white; /* Text color */
+  z-index: 1; /* Ensure it appears above the background */
+  text-align: center; /* Center text */
+  max-width: 90%; /* Prevent text overflow */
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+}
+
+/* Media query adjustments */
+@media (max-width: 800px) {
+  .services-title {
+    font-size: clamp(
+      2.5rem,
+      8vw + 1rem,
+      3.5rem
+    ); /* Adjust size for medium screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .services-title {
+    font-size: clamp(
+      2rem,
+      12vw + 1rem,
+      2.5rem
+    ); /* Adjust size for smaller screens */
+  }
+}
+
+@media (max-width: 400px) {
+  .services-title {
+    font-size: clamp(
+      1.5rem,
+      10vw + 1rem,
+      2rem
+    ); /* Further adjustment for very small screens */
+  }
+}
+
+/* solutions contents styling */
+.solutions-intro {
+  text-align: center; /* Center the text */
+  margin: 0 auto 20px; /* Center horizontally and add space below */
+  font-size: 1.25rem; /* Font size for the introductory text */
+  font-family: "Merriweather", serif; /* Font family for consistency */
+  width: 70%; /* Change to a percentage for better centering */
+  max-width: 800px; /* Optional: limit the max width */
+  color: black; /* Text color */
+}
+
+.solutions-card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Fixed two columns */
+  gap: 15vw; /* Space between cards */
+  padding: 20px; /* Padding around the container */
+}
+
+.solutions-card {
+  background-color: white; /* Card background */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Prevent overflow */
+  text-align: left; /* Align text to the left */
+  padding: 15px; /* Padding inside the card */
+}
+
+.solutions-card-list {
+  list-style-type: disc; /* Bullet points */
+  padding-left: 20px; /* Indentation for bullet points */
+}
+
+.solutions-card-list li {
+  /*margin: 1vw; /* Increase spacing between list items */
+  padding: 0.5vw;
+  margin: 5px 0; /* Spacing between list items */
+}
+
+.solutions-card-list a {
+  text-decoration: none; /* Remove underline */
+  color: #007bff; /* Link color */
+}
+
+.solutions-card-list a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.solutions-card-image {
+  width: auto; /* Make the image take the full width of the card */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 200px; /* Set a maximum height for the image */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+  display: block; /* Remove bottom space/gap */
+}
+
+.solutions-card-title {
+  font-size: 1.5rem; /* Larger font size for the title */
+  font-family: "Merriweather", serif; /* Different font family for the title */
+  font-weight: bold; /* Bold text */
+  margin-bottom: 10px; /* Spacing below the title */
+}
+
+.solutions-card-description {
+  margin-bottom: 15px; /* Spacing below the description */
+}
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+  .solutions-intro {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+
+  .solutions-card-image {
+    /* Additional styles can be added here if needed */
+    max-height: 150px; /* Adjust max height for smaller screens if necessary */
+  }
+
+  .solutions-card-container {
+    grid-template-columns: 1fr; /* Stack cards in a single column on smaller screens */
+  }
+
+  .solutions-card {
+    width: 100%; /* Full width on smaller screens */
+  }
+}
+
+/****************************/
+/** styling for about.html **/
+
+/* about.html sub-header styling */
+.about-main-content {
+  position: relative;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.about-main-content-image {
+  width: 100%; /* Ensure the image covers the full width */
+  height: 100%; /* Ensure the image covers the full height */
+  object-fit: cover; /* Cover the area without distortion */
+  display: block; /* Remove bottom space */
+}
+
+.overlay {
+  position: absolute; /* Position overlay on top of the image */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.5); /* Black color with opacity */
+  pointer-events: none; /* Ensure clicks go through the overlay */
+}
+
+/* about.html contents styling */
+.about-intro {
+  text-align: center; /* Center the text */
+  margin: 3% auto; /* Center horizontally and add space below */
+  font-size: 1.3rem; /* Font size for the introductory text */
+  font-family: "Merriweather", serif; /* Font family for consistency */
+  width: 90%; /* Change to a percentage for better centering */
+  line-height: 2; /* Set line height for single spacing */
+  color: black; /* Text color */
+}
+
+.about-list {
+  list-style-type: disc; /* Ensure bullet points are displayed */
+  padding-left: 20px; /* Indent the list */
+  margin: 0; /* Remove default margin */
+}
+.about-list li {
+  margin-bottom: 1em; /* Space below each list item */
+  line-height: 1.5; /* Single line spacing within list items */
+}
+
+.about-content {
+  margin: 20px 0 20px 20px; /* Add 10px margin on the left, 20px on top and bottom */
+  padding: 0 10px; /* Add padding to prevent overflow */
+  box-sizing: border-box; /* Include padding in the element's total width */
+  width: 60%;
+  margin-left: 5%; /* Ensure left margin is 0 to align with the left side */
+}
+
+.about-title {
+  font-size: 2.5rem; /* Bigger font size for the title */
+  margin: 3rem 0; /* Space above and below the title */
+  text-align: left; /* Align text to the left */
+}
+
+.about-step-title {
+  font-size: 2rem; /* H4 size */
+  margin: 1rem 0; /* Space above and below the H4 */
+  text-align: left; /* Align text to the left */
+}
+
+.about-description {
+  margin: 1.5rem 0; /* Space above and below the H4 */
+  font-size: 1.5rem; /* Smaller font size for description */
+  line-height: 1.5; /* Line height for readability */
+}
+
+/* Divider styling */
+.divider {
+  width: 40vw; /* Visible line width */
+  height: 1px; /* Fixed thickness of the line */
+  background-color: black; /* Color of the line */
+  margin: 3rem 0; /* Space above and below the divider */
+  max-width: 300px; /* Optional: limit the max width of the divider */
+}
+
+/* Prevent horizontal scrolling */
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+* {
+  box-sizing: border-box; /* Apply box-sizing globally */
+}
+
+.custom-sub-footer {
+  display: flex; /* Flexbox for horizontal layout */
+  justify-content: space-around; /* Space cards evenly */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.custom-sub-footer-title {
+  font-family: "Merriweather", serif; /* Use Merriweather for H4 */
+  font-size: clamp(1.8rem, 5vw, 3rem); /* Scale but limit max size */
+  line-height: 1.2; /* Adjust line height if needed */
+  margin-bottom: 2%; /* Remove default margin */
+  margin-left: 5%; /* Remove default margin */
+  color: black; /* Ensure the text color is black */
+}
+
+.custom-sub-footer-card {
+  width: 30vw; /* Each card takes 30% of the viewport width */
+  background-color: #e3edf9; /* Pastel background color */
+  border-radius: 15px; /* Curved borders */
+  padding: 20px; /* Internal padding */
+  margin: 1vw; /* Margin around each card */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+}
+
+.custom-sub-footer-link {
+  color: #1470af; /* Pastel blue color */
+  text-decoration: underline; /* Underline */
+  margin-bottom: 10px; /* Space below the link */
+  font-size: 1.5rem;
+}
+
+.custom-sub-footer-text {
+  color: black; /* Standard black text */
+  line-height: 1.5; /* Line height for readability */
+  font-size: 1.1rem;
+}
+
+/* Responsive styling */
+
+@media (max-width: 900px) {
+  .about-list li {
+    font-size: 1rem; /* Adjust font size for mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .about-list {
+    width: 95vw; /* Keep it 90% of the viewport width on mobile */
+  }
+  .about-list li {
+    font-size: 1rem; /* Adjust font size for mobile */
+  }
+
+  .about-content {
+    width: 90%; /* Adjust width to 90% on mobile */
+    margin-left: 0; /* Optionally remove left margin on mobile */
+  }
+  .custom-sub-footer {
+    flex-direction: column; /* Stack cards vertically on small screens */
+    align-items: center; /* Center align the cards */
+  }
+
+  .custom-sub-footer-card {
+    width: 80%; /* Adjust card width for mobile */
+    margin: 10px 0; /* Vertical spacing */
+  }
+}
+
+/********************************/
+/** styling for team.html **/
+
+.team-main-content {
+  position: relative;
+  height: 70vh;
+  overflow: hidden; /* Ensure no overflow */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center horizontally */
+  align-items: flex-end; /* Align items to the bottom */
+}
+
+.team-main-content-image {
+  width: 100%; /* Ensure the image covers the full width */
+  height: 100%; /* Ensure the image covers the full height */
+  object-fit: cover; /* Cover the area without distortion */
+  display: block; /* Remove bottom space */
+}
+
+.team-title {
+  position: absolute;
+  bottom: 20px; /* Slightly above the bottom */
+  width: 80%; /* Set width to 80% of the container */
+  left: 50%; /* Center the title */
+  transform: translateX(-50%); /* Adjust position to truly center */
+  font-family: "Merriweather", serif;
+  font-size: clamp(5rem, 5vw + 1rem, 3rem); /* Responsive font size */
+  color: white; /* Text color */
+  z-index: 1; /* Ensure it appears above the background */
+  text-align: center; /* Center text */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+  white-space: normal; /* Allow text to wrap */
+}
+
+/* solutions contents styling */
+.team-intro {
+  text-align: center; /* Center the text */
+  margin: 0 auto 20px; /* Center horizontally and add space below */
+  color: black; /* Text color */
+}
+
+.team-card-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(30vw, 1fr)
+  ); /* Use a min width for cards */
+  gap: 5vw; /* Space between cards */
+  padding: 5vw; /* Padding around the container */
+}
+
+.team-card {
+  background-color: white; /* Card background */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Prevent overflow */
+  text-align: left; /* Align text to the left */
+  display: flex; /* Use flexbox for internal alignment */
+  flex-direction: column; /* Stack children vertically */
+}
+
+.team-card-image {
+  width: 50%; /* Center the image at 50% of the card width */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+  display: block; /* Remove bottom space/gap */
+  margin: 0 auto 10px; /* Center image and add space below */
+}
+
+.team-card-title {
+  font-size: 2rem; /* Larger font size for the title */
+  font-family: "Merriweather", serif; /* Different font family for the title */
+  font-weight: bold; /* Bold text */
+  margin: 2vw 0; /* Reduced spacing above and below the title */
+  text-align: center; /* Center the title */
+}
+
+.team-card-description {
+  font-size: 1.1rem;
+  text-align: left; /* Align text to the left */
+  width: 95%; /* Center the image at 50% of the card width */
+}
+
+/* Responsive styling for team.html */
+@media (max-width: 768px) {
+  .team-title {
+    font-size: clamp(
+      1.2rem,
+      4vw + 0.5rem,
+      2rem
+    ); /* Smaller font size for mobile */
+    width: 90%; /* Optionally adjust for mobile */
+  }
+  .team-card-container {
+    display: flex; /* Change to flex layout */
+    flex-direction: column; /* Stack cards vertically */
+  }
+}
+
+/********************************/
+/** styling for media.html **/
+
+.media-card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Fixed two columns */
+  gap: 16px; /* Space between cards */
+  padding: 0; /* Remove padding around the container */
+}
+
+.media-card {
+  background-color: white; /* Card background */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Prevent overflow */
+  text-align: center; /* Align text to center */
+  display: flex; /* Use flexbox for internal alignment */
+  flex-direction: column; /* Stack children vertically */
+  margin: 0; /* Ensure no margin is applied */
+}
+
+.media-card-image {
+  width: 90%; /* Make the image take full width of the card */
+  height: 60vh; /* Set a uniform height for all images */
+  object-fit: cover; /* Maintain aspect ratio and cover the area */
+  display: block; /* Removes extra space below the image */
+  margin: 0 auto; /* Center the image */
+  opacity: 1; /* Start hidden for animation */
+  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+}
+
+.media-card-title {
+  font-size: 2.5rem; /* Adjust font size if necessary */
+  font-family: "Merriweather", serif; /* Font family for the title */
+  margin: 0.5rem 0; /* Reduced spacing for title */
+  text-align: center; /* Center the title */
+}
+
+.media-card-description {
+  font-size: 1.2rem; /* Adjust font size for description */
+  margin: 0.5rem 0; /* Reduced spacing for description */
+  padding: 0 1rem; /* Add some horizontal padding */
+}
+
+.media-link {
+  margin: 0; /* Ensure no margin on the link */
+  padding: 0.5rem 0; /* Add padding for readability */
+}
+
+/* Styling for the Read More link */
+.pagination {
+  display: flex;
+  justify-content: space-between; /* Aligns links to the edges */
+  margin: 20px 0;
+}
+
+.link-newer-posts,
+.link-older-posts {
+  margin: 0; /* Remove default margin */
+  padding: 1rem 0; /* Add padding for spacing */
+}
+
+.link-newer-posts {
+  text-align: left; /* Left justified */
+}
+
+.link-older-posts {
+  text-align: right; /* Right justified */
+}
+
+.link-newer-posts a,
+.link-older-posts a {
+  text-decoration: none; /* Removes underline from the link */
+  color: black; /* Default link color */
+  font-size: 1.2rem; /* Adjust font size if needed */
+}
+
+.link-newer-posts a:hover,
+.link-older-posts a:hover {
+  text-decoration: underline; /* Adds underline on hover */
+  color: #007bff; /* Change to your desired link color */
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(-50px); /* Start 50px above */
+    opacity: 0; /* Start fully transparent */
+  }
+  100% {
+    transform: translateY(0); /* End in original position */
+    opacity: 1; /* End fully visible */
+  }
+}
+
+.show {
+  animation: drop 0.5s ease forwards; /* Apply the drop animation */
+  opacity: 1; /* Ensure the image is visible */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .media-card-container {
+    display: flex; /* Change to flex layout */
+    flex-direction: column; /* Stack cards vertically */
+  }
+  .media-card-description {
+    font-size: 0.9rem; /* Smaller font size for mobile */
+  }
+  .media-card-image {
+    opacity: 1; /* Ensure images are visible on load for mobile */
+  }
+}
+
+/********************************/
+/** styling for contact.html **/
+
+.appointment-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/********************************/
+/** styling for comp-incorp.html **/
+
+/* Flex container for the grid */
+.comp-incorp-flex-grid {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  justify-content: center; /* Center the grid items */
+  width: 90%; /* 90% of the window width */
+  margin: 0 auto; /* Center the container */
+  padding: 20px 0; /* Vertical padding */
+}
+
+/* Individual card box styling */
+.comp-incorp-card-box {
+  flex: 0 0 22vw; /* Fixed width of 25% viewport width */
+  height: 60vh; /* Fixed height of 60% viewport height */
+  margin: 20px; /* Margin around each card */
+  border: 6px solid #87ceeb; /* Light blue border */
+  border-radius: 15px; /* Curved borders */
+  overflow: hidden; /* Prevent overflow */
+  display: flex; /* Flex container for card items */
+  flex-direction: column; /* Stack image and description vertically */
+  background-color: white; /* Background color for the box */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit color from parent */
+}
+
+/* Image styling */
+.comp-incorp-card-image {
+  height: 60%; /* Image takes 60% of the card height */
+  max-width: 100%; /* Prevent stretching beyond the card width */
+  object-fit: contain; /* Maintain aspect ratio without cropping */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+/* Description styling */
+.comp-incorp-card-description {
+  height: 40%; /* Description takes 40% of the card height */
+  padding: 10px; /* Padding around text */
+  display: flex; /* Flex container for text */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  text-align: center; /* Center text alignment */
+  background-color: white; /* Light background for description */
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 800px) {
+  .comp-incorp-card-box {
+    flex: 0 0 80%; /* Take up 80% of the window width */
+    margin: 10px auto; /* Center with auto margins */
+  }
+}
+/**************************************************************/
+/* styling for footer.html */
+/* Note: attached to all pages footer */
+.footer {
+  background-color: #dbebfd; /* Light background color */
+  padding: 20px; /* Space around the footer */
+  font-family: "Merriweather", serif; /* Font family */
+  color: #333; /* Text color */
+}
+
+.footer-columns {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between columns */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.footer-column {
+  flex: 1; /* Each column takes equal space */
+  min-width: 200px; /* Minimum width for responsiveness */
+  margin: 10px; /* Space between columns */
+}
+
+.footer-services-info {
+  display: flex; /* Use flex for sub-columns */
+  flex-direction: row; /* Keep them side-by-side */
+  flex-wrap: wrap; /* Allow wrapping if needed */
+  width: 100%; /* Ensure it takes full width */
+}
+
+.footer-sub-column {
+  flex: 1; /* Each sub-column takes equal space */
+  margin: 5px; /* Space between sub-columns */
+}
+
+.footer-column h3,
+.footer-column strong {
+  margin-bottom: 10px; /* Space below headings */
+}
+
+.footer-column a {
+  color: black; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.footer-column a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.social-links {
+  margin-top: 10px; /* Space above social links */
+}
+
+.social-icon {
+  width: 24px; /* Icon width */
+  height: 24px; /* Icon height */
+  margin-right: 10px; /* Space between icons */
+}
+
+.footer-bottom {
+  text-align: left; /* Left-align the text */
+  margin-top: 20px; /* Space above bottom text */
+}
+
+.footer-company-name {
+  font-family: "Merriweather", serif; /* Use Merriweather for H4 */
+}
+
+.footer-note {
+  color: rgb(138, 138, 143); /* Gray color for footer note */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .footer-columns {
+    flex-direction: column; /* Stack all footer columns on very small devices */
+  }
+
+  .footer-services-info {
+    flex-direction: column; /* Stack Information and Services vertically in small screens */
+    width: 100%; /* Ensure it takes full width */
+  }
+
+  .footer-sub-column {
+    flex: 1 1 auto; /* Allow sub-columns to grow */
+    margin: 10px 0; /* Adjust margin for spacing */
+  }
+}
