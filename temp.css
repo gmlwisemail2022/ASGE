@@ -65,7 +65,6 @@ body {
 
 .header-nav-list {
   display: flex;
-  justify-content: space-between;
   flex: 1;
   max-width: 50%;
 }
@@ -107,11 +106,13 @@ body {
   color: black; /* Keep text color black on hover */
 }
 
+/*
 .get-in-touch-button {
-  font-size: 1.5rem !important; /* Adjust this value to make the font larger */
-  padding: 10px 10px; /* Optional: adjust padding for better spacing */
-  font-family: "Pontano Sans", sans-serif; /* Set the font */
+  font-size: 1.5rem !important; 
+  padding: 10px 10px; 
+  font-family: "Pontano Sans", sans-serif; 
 }
+*/
 
 /* Burger Button Styles */
 .burger-box {
@@ -212,25 +213,26 @@ body {
     background-color: #f8f9fa;
   }
 
-  /* Specific styles for the Get in Touch button in the dropdown */
+  /* Specific styles for the Get in Touch button in the dropdown 
   .dropdown-get-in-touch-button {
-    font-size: 2rem; /* Font size for the button */
-    padding: 2vh 5vw; /* Padding for better touch targets */
-    margin-top: 0; /* Space around the button */
-    background-color: #007bff; /* Example background color */
-    color: white; /* Text color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
-    display: block; /* Make it a block element for centering */
-    width: auto; /* Adjust width as needed */
-    max-width: 300px; /* Optional: set a max width */
-    margin-left: auto; /* Center the button */
-    margin-right: auto; /* Center the button */
+    font-size: 2rem; 
+    padding: 2vh 5vw; 
+    margin-top: 0; 
+    background-color: #007bff; 
+    color: white; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    display: block; 
+    width: auto; 
+    max-width: 300px; 
+    margin-left: auto; 
+    margin-right: auto; 
     margin-top: auto;
     margin-bottom: 5vw;
   }
+*/
 
   /* Styles for the LinkedIn button to align with the Get in Touch button */
   .linkedin-button {
@@ -481,7 +483,7 @@ body {
       2vw,
       1.3rem
     ); /* Reduce max size for smaller screens */
-    padding: clamp(6px, 0.8vw, 10px) clamp(8px, 1vw, 12px);
+    padding: clamp(3px, 0.4vw, 5px) clamp(4px, 0.5vw, 6px);
   }
 }
 
@@ -501,11 +503,11 @@ body {
 
 .action-button {
   font-size: clamp(
-    1.3rem,
+    1.1rem,
     1.2vw,
-    1.5rem
+    1.3rem
   ) !important; /* Scale font size within a range */
-  padding: clamp(12px, 2vw, 20px) clamp(15px, 2.5vw, 25px) !important; /* Responsive padding */
+  padding: clamp(0.75rem, 2vw, 1.25rem) clamp(1rem, 2.5vw, 1.5rem) !important; /* Responsive padding using rem and vw */
   font-family: "Pontano Sans", sans-serif; /* Set the font */
   width: auto;
   border-radius: 5px; /* Optional: add border radius for rounded corners */
@@ -520,7 +522,6 @@ body {
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically (if needed) */
-  margin: 10px 0; /* Optional: margin for spacing */
 }
 
 .content-title {
@@ -646,6 +647,14 @@ body {
   display: flex;
   width: 90%;
   height: 160vh; /* Fixed height for both rows */
+  align-items: stretch; /* Ensure items stretch to fill height */
+  margin-bottom: 0; /* No padding between rows */
+}
+
+.custom-flex-row-90-ht-180 {
+  display: flex;
+  width: 90%;
+  height: 180vh; /* Fixed height for both rows */
   align-items: stretch; /* Ensure items stretch to fill height */
   margin-bottom: 0; /* No padding between rows */
 }
@@ -779,7 +788,7 @@ body {
     1.2vw,
     1.5rem
   ) !important; /* Scale font size within a range */
-  padding: clamp(10px, 2vw, 18px) clamp(12px, 2.5vw, 20px) !important; /* Responsive padding */
+  padding: clamp(5px, 1vw, 9px) clamp(6px, 1.25vw, 10px) !important; /* Reduced responsive padding */
   font-family: "Pontano Sans", sans-serif; /* Set the font */
   width: auto;
 }
@@ -803,7 +812,8 @@ body {
   .custom-flex-row-90-ht-70,
   .custom-flex-row-90-ht-120,
   .custom-flex-row-90-ht-140,
-  .custom-flex-row-90-ht-160 {
+  .custom-flex-row-90-ht-160,
+  .custom-flex-row-90-ht-180 {
     flex-direction: column; /* Stack elements vertically */
     height: auto; /* Allow height to adjust */
   }
@@ -1447,7 +1457,8 @@ body {
 }
 
 /* styling for strategic-business-advisory.html */
-/* Image styling */
+
+/* Individual card box styling */
 .strategic-card-image {
   height: 40%; /* Image takes 60% of the card height */
   max-width: 100%; /* Prevent stretching beyond the card width */
@@ -1490,6 +1501,53 @@ body {
     font-size: 0.9rem;
   }
   .strategic-card-description {
+    font-size: 0.8rem;
+  }
+}
+*/
+
+/* styling for treasury-management-services.html */
+.treasury-card-image {
+  height: 50%; /* Image takes 60% of the card height */
+  max-width: 100%; /* Prevent stretching beyond the card width */
+  object-fit: contain; /* Maintain aspect ratio without cropping */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+.treasury-card-title {
+  height: 10%; /* Description takes 40% of the card height */
+  padding: 5px; /* Padding around text */
+  display: flex; /* Flex container for text */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  text-align: center; /* Center text alignment */
+  background-color: white; /* Light background for description */
+}
+.treasury-card-description {
+  height: 30%; /* Description takes 40% of the card height */
+  display: flex; /* Flex container for text */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  text-align: center; /* Center text alignment */
+  background-color: white; /* Light background for description */
+}
+
+/* Responsive styles for mobile */
+/*
+@media (max-width: 1100px) {
+  .treasury-card-title {
+    font-size: 0.9rem;
+  }
+  .treasury-card-description {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .treasury-card-title {
+    font-size: 0.9rem;
+  }
+  .treasury-card-description {
     font-size: 0.8rem;
   }
 }
