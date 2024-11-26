@@ -436,8 +436,9 @@ body {
 
 .home-title {
   font-family: "Merriweather", serif; /* Use Merriweather for H4 */
-  font-size: clamp(2rem, 5vw, 4rem); /* Scale but limit max size */
+  font-size: clamp(3rem, 5vw, 5rem); /* Scale but limit max size */
   line-height: 1.2; /* Adjust line height if needed */
+  margin-top: 5%; /* Remove default margin */
   margin-bottom: 2%; /* Remove default margin */
   color: black; /* Ensure the text color is black */
 }
@@ -619,10 +620,10 @@ body {
 }
 
 /* Set the height of the row to 100vh */
-.custom-flex-row-90-ht-70 {
+.custom-flex-row-90-ht-80 {
   display: flex;
   width: 90%;
-  height: 70vh; /* Fixed height for both rows */
+  height: 80vh; /* Fixed height for both rows */
   align-items: stretch; /* Ensure items stretch to fill height */
   margin-bottom: 0; /* No padding between rows */
 }
@@ -764,7 +765,35 @@ body {
 }
 
 .custom-ol li {
+  font-size: clamp(1rem, 1.2vw, 0.8rem);
   margin-bottom: 1em; /* Add space between list items */
+}
+
+.custom-ol-2 li {
+  font-size: clamp(1.2rem, 1.2vw, 1rem);
+  margin-bottom: 1em; /* Add space between list items */
+}
+
+.custom-ul li {
+  font-size: clamp(1.1rem, 1.2vw, 0.8rem);
+  margin-bottom: 1.2em; /* Add space between list items */
+}
+
+.custom-ul-container {
+  display: flex; /* Use flexbox for equal columns */
+  justify-content: space-between; /* Space columns evenly */
+  margin: 20px 0; /* Add some margin above and below */
+}
+
+.custom-ul-column {
+  flex: 1; /* Allow columns to grow equally */
+  margin: 0 10px; /* Add some margin between columns */
+}
+
+.custom-ul {
+  list-style-type: disc; /* Use disc for bullet points */
+  padding-left: 20px; /* Add padding to indent the list items */
+  margin: 0; /* Reset margin */
 }
 
 /* Custom styling for image boxes */
@@ -809,7 +838,7 @@ body {
 
   .custom-flex-row,
   .custom-flex-row-90,
-  .custom-flex-row-90-ht-70,
+  .custom-flex-row-90-ht-80,
   .custom-flex-row-90-ht-120,
   .custom-flex-row-90-ht-140,
   .custom-flex-row-90-ht-160,
@@ -878,7 +907,7 @@ body {
 
 .services-title {
   position: absolute;
-  bottom: 20px; /* Slightly above the bottom */
+  bottom: 20%; /* Slightly above the bottom */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Adjust position to truly center */
   font-family: "Merriweather", serif;
@@ -1019,7 +1048,7 @@ body {
 /* about.html sub-header styling */
 .about-main-content {
   position: relative;
-  height: 70vh;
+  height: 80vh;
   /*overflow: hidden;*/
 }
 
@@ -1033,6 +1062,10 @@ body {
 
 .image-centered {
   object-position: center !important; /* Cover the area without distortion */
+}
+
+.text-centered {
+  text-align: center; /* Centers text horizontally */
 }
 
 .overlay {
@@ -1147,6 +1180,7 @@ body {
   color: black; /* Standard black text */
   line-height: 1.5; /* Line height for readability */
   font-size: 1.1rem;
+  margin-top: 1.5vh; /* Space below the link */
 }
 
 /* Responsive styling */
