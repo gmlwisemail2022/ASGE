@@ -301,6 +301,15 @@ body {
   word-wrap: break-word; /* Allow words to wrap */
 }
 
+.general-title-font-sm {
+  font-size: clamp(
+    1rem,
+    3vw + 0.5rem,
+    3rem
+  ) !important; /* font size override for specific / long title*/
+  width: 70% !important; /* Allow full width */
+}
+
 /* generic styling used across all web pages */
 .blank-padding-10 {
   padding: 1vh; /* Adjust the value as needed */
@@ -387,24 +396,11 @@ body {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .general-title {
     font-size: clamp(1.5rem, 8vw + 1rem, 4rem); /* Adjust for smaller screens */
   }
-  .general-p-large {
-    font-size: 1.3rem; /* Adjust this value for larger font size */
-  }
-  .general-p-reg {
-    font-size: 0.8rem; /* Adjust for smaller screens */
-  }
-  .general-p-sm {
-    font-size: 0.7rem; /* Adjust this value for larger font size */
-    line-height: 1.5; /* Sets line spacing to 1 */
-  }
-  .general-p-ssm {
-    font-size: 0.6rem; /* Adjust this value for larger font size */
-    line-height: 1; /* Sets line spacing to 1 */
-  }
+
   .general-text-header-big {
     font-family: "Merriweather", serif; /* Use Merriweather for H4 */
     font-size: 1.3rem; /* Responsive font size */
@@ -714,7 +710,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "Pontano Sans", sans-serif;
-  gap: 15px; /* Adjust gap for spacing between elements */
+  gap: 1%; /* Adjust gap for spacing between elements */
   overflow: hidden; /* Prevent overflow */
 }
 
@@ -772,11 +768,13 @@ body {
 .custom-ol-2 li {
   font-size: clamp(1.2rem, 1.2vw, 1rem);
   margin-bottom: 1em; /* Add space between list items */
+  margin-left: 1vw;
 }
 
 .custom-ul li {
-  font-size: clamp(1.1rem, 1.2vw, 0.8rem);
-  margin-bottom: 1.2em; /* Add space between list items */
+  font-size: clamp(1.1rem, 1.1vw, 0.8rem);
+  margin-bottom: 1em; /* Add space between list items */
+  margin-left: 1vw;
 }
 
 .custom-ul-container {
@@ -1084,7 +1082,7 @@ body {
   margin: 3% auto; /* Center horizontally and add space below */
   font-size: 1.3rem; /* Font size for the introductory text */
   font-family: "Merriweather", serif; /* Font family for consistency */
-  width: 90%; /* Change to a percentage for better centering */
+  width: 80%; /* Change to a percentage for better centering */
   line-height: 2; /* Set line height for single spacing */
   color: black; /* Text color */
 }
@@ -1586,6 +1584,90 @@ body {
   }
 }
 */
+
+/* styling for offshore-company-formation.html */
+/* Individual card box styling */
+
+.offshore-flex-grid {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  justify-content: space-around; /* Center the grid items */
+  width: 70%; /* 90% of the window width */
+  margin: 0 auto; /* Center the container */
+  padding: 5vh 0; /* Vertical padding */
+}
+
+/* Individual card box styling */
+.offshore-card-box {
+  flex: 0 0 25vw; /* Fixed width of 30% viewport width */
+  height: 65vh; /* Fixed height of 60% viewport height */
+  margin: 20px; /* Margin around each card */
+  border: 6px solid #87ceeb; /* Light blue border */
+  border-radius: 15px; /* Curved borders */
+  overflow: hidden; /* Prevent overflow */
+  display: flex; /* Flex container for card items */
+  flex-direction: column; /* Stack image and description vertically */
+  background-color: white; /* Background color for the box */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit color from parent */
+}
+
+.offshore-card-image {
+  height: 40%; /* Image takes 60% of the card height */
+  max-width: 100%; /* Prevent stretching beyond the card width */
+  width: 70%;
+  object-fit: contain; /* Maintain aspect ratio without cropping */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+.offshore-card-title {
+  height: 15%; /* Description takes 40% of the card height */
+  padding: 5px; /* Padding around text */
+  display: flex; /* Flex container for text */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  text-align: center; /* Center text alignment */
+  background-color: white; /* Light background for description */
+}
+.offshore-card-description {
+  height: 35%; /* Description takes 40% of the card height */
+  width: 80%;
+  margin: 0 auto; /* Center the description box */
+  display: flex; /* Flex container for text */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  text-align: center; /* Center text alignment */
+  background-color: white; /* Light background for description */
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .offshore-flex-grid {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: stretch; /* Ensure cards stretch to equal height */
+  }
+
+  .offshore-card-box {
+    flex: 0 0 auto; /* Allow cards to take full width */
+    width: 90%; /* Adjust card width */
+    height: 50vh; /* height is fixed to height of screen */
+    margin: 10px auto; /* Center cards with margin */
+  }
+
+  .offshore-card-image {
+    height: 50%; /* Maintain image height proportion */
+    width: 70%;
+  }
+
+  .offshore-card-title {
+    height: 15%; /* Maintain title height proportion */
+  }
+
+  .offshore-card-description {
+    height: 35%; /* Maintain description height proportion */
+  }
+}
 
 /**************************************************************/
 /* styling for footer.html */
