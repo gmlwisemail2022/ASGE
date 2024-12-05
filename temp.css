@@ -1358,6 +1358,56 @@ body {
   padding: 0.5rem 0; /* Add padding for readability */
 }
 
+/* styling for media-details page */
+/* Specific styles for the media detail page */
+.media-dtl-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 20px;
+}
+.media-dtl-container {
+  max-width: 50%;
+  width: 100%;
+  text-align: center;
+}
+.media-dtl-image {
+  max-width: 100%;
+  /*height: 50vh; /* Limit image height to 50% of viewport height */
+  object-fit: cover; /* Maintain aspect ratio */
+  border-radius: 8px;
+}
+.media-dtl-title {
+  font-weight: 600;
+  font-size: 4rem;
+  font-family: "Merriweather", serif; /* Use Merriweather for title */
+}
+.media-dtl-details {
+  text-align: left; /* Align details text to the left */
+  font-size: 1.2rem;
+  margin-top: 20px; /* Add some spacing above the details */
+}
+.media-dtl-navigation {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Make the navigation fill the container */
+  margin-top: 20px;
+}
+.media-dtl-navigation a {
+  margin-left: 2vw;
+  text-decoration: none; /* Remove underline */
+  color: blue; /* Change color to blue for links */
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+@media (max-width: 600px) {
+  .media-dtl-content {
+    max-width: 80%;
+  }
+}
+
 /* Styling for the Read More link */
 .pagination {
   display: flex;

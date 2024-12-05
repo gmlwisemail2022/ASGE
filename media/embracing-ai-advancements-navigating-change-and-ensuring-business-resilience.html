@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Asia SGE | Your Trusted Partner in Worldwide Business Growth</title>
+    <link rel="stylesheet" href="temp.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+  </head>
+  <body>
+    <div class="content" id="content">
+      <h1 id="title"></h1>
+      <img id="image" src="" alt="" />
+      <p id="description"></p>
+      <div class="navigation">
+        <a id="prev" href="#" style="display: none">&lt; Prev</a>
+        <a id="next" href="#" style="display: none">Next &gt;</a>
+      </div>
+    </div>
+
+    <script>
+      const mediaCards = [
+        {
+          id: 1,
+          image: "assets/media/1699408275865.jpeg",
+          title:
+            "Embracing AI Advancements: Navigating Change and Ensuring Business Resilience",
+          description: "Explore the transformative power of AI advancements...",
+        },
+        {
+          id: 2,
+          image: "assets/media/another-image.jpeg",
+          title: "Another Title Here",
+          description: "Details about another topic...",
+        },
+        // Add more card data here as needed
+      ];
+
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get("id"));
+      const currentCard = mediaCards.find((card) => card.id === id);
+
+      if (currentCard) {
+        document.getElementById("title").textContent = currentCard.title;
+        document.getElementById("image").src = currentCard.image;
+        document.getElementById("description").textContent =
+          currentCard.description;
+
+        const currentIndex = mediaCards.indexOf(currentCard);
+        if (currentIndex > 0) {
+          const prevCard = mediaCards[currentIndex - 1];
+          document.getElementById("prev").textContent = prevCard.title;
+          document.getElementById(
+            "prev"
+          ).href = `subpage.html?id=${prevCard.id}`;
+          document.getElementById("prev").style.display = "inline";
+        }
+
+        if (currentIndex < mediaCards.length - 1) {
+          const nextCard = mediaCards[currentIndex + 1];
+          document.getElementById("next").textContent = nextCard.title;
+          document.getElementById(
+            "next"
+          ).href = `subpage.html?id=${nextCard.id}`;
+          document.getElementById("next").style.display = "inline";
+        }
+      } else {
+        document.getElementById("content").innerHTML = "<p>Card not found.</p>";
+      }
+    </script>
+  </body>
+</html>
