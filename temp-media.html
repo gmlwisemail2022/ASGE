@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Asia SGE | Your Trusted Partner in Worldwide Business Growth</title>
+    <link rel="stylesheet" href="temp.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+  </head>
+  <body>
+    <div id="header"></div>
+    <div class="blank-padding-20"></div>
+
+    <div class="media-card-container"></div>
+
+    <script id="media-card-template" type="text/x-handlebars-template">
+      {{#each mediaCards}}
+        <div class="media-card">
+          <img
+            src="{{this.image}}"
+            alt="{{this.title}}"
+            class="media-card-image"
+          />
+          <h1 class="media-card-title">{{this.title}}</h2>
+          <p class="media-card-description">{{this.description}}</p>
+          <div class="media-link">
+            <a href="{{this.link}}" class="media-link">Read More</a>
+          </div>
+        </div>
+      {{/each}}
+    </script>
+
+    <div class="blank-padding-20"></div>
+    <div class="pagination">
+      <div class="link-newer-posts">
+        <a id="newer-posts-link" href="media.html?page=0">Newer Posts &gt;</a>
+      </div>
+      <div class="link-older-posts">
+        <a id="older-posts-link" href="media.html?page=1">Older Posts &gt;</a>
+      </div>
+    </div>
+    <div class="blank-padding-20"></div>
+    <!--load external footer -->
+    <div id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        fetch("header.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("header").innerHTML = data;
+
+            $(".navbar-toggler").click(function () {
+              $("#navbarDropdown").toggleClass("show");
+            });
+
+            $(".close-dropdown").click(function () {
+              $("#navbarDropdown").removeClass("show");
+            });
+          });
+
+        fetch("footer.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("footer").innerHTML = data;
+          });
+
+        const mediaCards = [
+          // Add more card data from the top as needed (newer posts)
+          {
+            image: "assets/media/1699408275865.jpeg",
+            title:
+              "Embracing AI Advancements: Navigating Change and Ensuring Business Resilience",
+            description:
+              "Explore the transformative power of AI advancements and how businesses can navigate change for long-term resilience. Learn about OpenAI's latest developments, the potential impact on entrepreneurs and small AI startups, and the importance of proactive guidance in expanding capabilities and staying ahead in the dynamic AI landscape.",
+            link: "../media/",
+          },
+          {
+            image: "assets/media/1699006802161.jpeg",
+            title:
+              "Lessons from Old Growth Forests and New Growth Forests: Navigating Business Resilience",
+            description:
+              "Explore the analogy between Old Growth Forests and business growth as we delve into the rise of 'old growth' businesses in the face of economic challenges. Discover how these enterprises draw strength from adversity and adapt to ensure sustained success. Learn how Asia SGE assists founders in building resilient start-ups by implementing 'old growth' strategies that enrich stakeholders and navigate the evolving business landscape.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image: "assets/media/1698734697180.jpeg",
+            title:
+              "Hong Kong's Transformation: Embracing DLT and Tokenization for Financial Innovation",
+            description:
+              "Witness the transformative power of distributed ledger technology (DLT) and tokenization as Hong Kong embraces these innovations to revolutionize its financial industry. Explore the benefits of tokenized bonds, including reduced manual processing and improved servicing efficiency. Discover the potential of tokenization for enhancing accessibility, liquidity, and incorporating real-time tracking features. Hong Kong's leadership in Web3 technologies paves the way for global entrepreneurship and sets a vibrant example for others to follow.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image: "assets/media/1698376813638.jpeg",
+            title:
+              "The Power of Patience: Navigating Startup Challenges in an Evolving Landscape",
+            description:
+              "Explore how startup founders are embracing patience and thoughtful strategies to navigate the challenges of a changing landscape. Discover the power of adaptive leadership and investing time in understanding clients' pain points to guide long-term success. Learn from industry leaders like Howard Schultz of Starbucks, who transcended beyond selling coffee with a broader vision. In unpredictable times, the ability to peel back the layers of problems sets winners apart.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image: "assets/media/1698215535893.jpeg",
+            title:
+              "Origins of Hedge Funds: From Gamblers to Innovators in Asset Management",
+            description:
+              "Uncover the fascinating story behind the origins of hedge funds, rooted in the techniques used by gamblers to hedge their bets. Alfred Winslow Jones' innovative approach of combining risky techniques created a conservative portfolio, paving the way for the birth of hedge funds. Witness the relevance of creativity and cross-industry inspiration in designing services for emerging markets like crypto and AI. With the experience and creativity of Asia SGE, explore the application of insights in guiding startups and founders in the crypto space and other industries.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image: "assets/media/1698114861306.jpeg",
+            title: "Beyond the Spotlight: Recognizing True Success",
+            description:
+              "Explore the notion of true success that extends beyond public recognition and spotlight. Reflect on the value of being driven and maintaining focus on continuous progress, even without a big audience cheering. Witness the resilience and dedication of entrepreneurs at Asia SGE, who persevere and make strides in their businesses behind the scenes. Discover how Asia SGE provides vital support to these committed individuals, enabling them to build, innovate, and grow with confidence.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/People_with_their_backs_turned_reviewing_business_metrics_with_thoughtful_expressions._Charts_and_graphs_displaying_long_term_growth_trends._Clean,_minimal_aesthetic_for_a_professional_business_we.png",
+            title: "Balancing Success Metrics: Prioritizing Sustainable Growth",
+            description:
+              "Uncover the significance of balancing success metrics in startups and avoiding the allure of vanity metrics. Explore the dangers of prioritizing short-term gains over long-term sustainability, drawing parallels from the dot-com bubble era. Learn from Asia SGE's experience in the startup landscape and discover the metrics that should be prioritized today for enduring success.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/An_image_of_a_professional_network_-_overlapping_circles_representing_individuals_connected_to_each_other._The_circles_could_be_color_coded_to_represent_growth_over_time_as_more_connections_are_ma.png",
+            title:
+              "Unleashing Exponential Growth: The Power of Relationships and Networks",
+            description:
+              " Journey into the world of exponential growth as we unravel the significance of relationships and networks. Delve into the captivating tale of the Manhattan sale, revealing the transformative power of compounding. Explore how building meaningful connections can catalyze exponential success in your career or business. Benefit from the presence of influential institutions like the FinTech Association of Hong Kong and organizations such as the Hult Alumni Association, as we celebrate the rewarding nature of nurturing professional relationships.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/A_dynamic_visual_representation_of_an_AI-powered_robot_struggling_to_catch_flying_stock_prices_in_a_rapidly_changing_landscape_inspired_by_Wall_Street,_with_a_beacon_symbolizing_data_in_the_backgr.png",
+            title: "The Limitations of AI in Stock Picking",
+            description:
+              "Artificial Intelligence, despite being a powerhouse at various tasks, shows limitations in the stock-picking sector. AI-driven exchange-traded funds often miss capturing returns from rapid market rallies, underlining the necessity for human oversight.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/An_illustration_of_a_powerful_ancient_Egyptian_priest_using_a_Nilometer,_transitioning_into_a_modern-day_startup_founder_skillfully_choosing_and_using_digital_tools,_symbolizing_the_timeless_power.png",
+            title:
+              "The Power of Knowledge: From Ancient Egypt to Modern Startups",
+            description:
+              "From ancient Egypt's Nilometer to modern-day tools, the power of knowledge remains constant. Today, the ability to choose and utilize the right tools is a sought-after skill, especially in startups.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/A_vibrant_scene_depicting_the_future_of_Hong_Kong_as_a_leading_global_financial_center,_with_technology_and_innovation_at_its_heart,_inspired_by_the_initiatives_proposed_by_the_Hong_Kong_Monetary_.png",
+            title:
+              "HKMA's Fintech Initiatives: A Game-Changer for Hong Kong's Financial Landscape",
+            description:
+              "The HKMA's vision to transform Hong Kong into a global financial centre harnessing Fintech solutions is a step in the right direction. It promises personalized, secure, and cost-effective experiences for consumers.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/A_visual_representation_of_a_grand_glass_facade_crumbling_to_reveal_a_company's_deceptive_practices.png",
+            title:
+              "The Tingo Group Incident: A Reminder to Look Beyond Face Value",
+            description:
+              "Tingo Group Inc., once valued at $3 billion, used deceptive tactics to maintain its image. This underlines the importance of understanding a company beyond its market-listed value.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/A_striking_image_of_a_bustling_Hong_Kong_cityscape,_with_silhouettes_representing_unemployed_individuals_on_one_side_and_businesses_desperately_seeking_talent_on_the_other,_illustrating_the_parado.png",
+            title:
+              "Unraveling Hong Kong's Talent Squeeze Amidst High Unemployment",
+            description:
+              "Despite having one of the highest unemployment rates among developed economies, Hong Kong is facing a dire talent shortage. This contradiction points to a mismatch between available talent and business needs..",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/A_futuristic_image_of_a_chrome_orb_scanning_an_eye,_with_digital_currency_symbols_floating_around,_encapsulating_the_intersection_of_technology,_finance,_and_privacy._Style_-_graphic_design.png",
+            title: "Worldcoin: A Global Currency or a Privacy Nightmare?",
+            description:
+              "Worldcoin, co-founded by Sam Altman, aims to create a global ID and currency using iris scans. Despite its ambitious goal, privacy concerns over biometric data loom large.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/A_dynamic_image_depicting_Asia_at_the_forefront_of_AI_innovation,_with_symbols_of_technology,_data,_and_investment_rising_from_the_continent,_signifying_its_potential_dominance_in_the_AI_arena..png",
+            title: "The Rise of Asia: A New Powerhouse in AI Innovation?",
+            description:
+              "As Asia amplifies its AI efforts with government investments, tech giants' support, vast data pools, and lower regulatory hurdles, it's poised to reshape the global AI landscape.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/An_image_depicting_a_rollercoaster_ride_symbolizing_the_rapid_rise_and_fall_of_Pepecoin,_with_the_iconic_'Pepe_the_Frog'_meme_riding_on_top,_capturing_the_turbulent_journey_of_memecoins..png",
+            title: "The Whirlwind Journey of Pepecoin: A Memecoin Saga",
+            description:
+              "Pepecoin's dramatic surge and subsequent decline highlight the high-risk, high-reward nature of memecoins. Its journey serves as a cautionary tale for speculative cryptocurrency investments.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/An_image_representing_a_shifting_balance_scale,_with_the_US_dollar_on_one_side_and_a_mix_of_other_global_currencies_(RMB,_yen,_euro)_on_the_other,_symbolizing_the_changing_dynamics_of_global_reser.png",
+            title:
+              "The Decline of the US Dollar: A Shift in Global Reserve Currency Dynamics",
+            description:
+              "As the US dollar's share of global reserves diminishes, the financial world is witnessing potential shifts towards a multi-currency reserve system that could reshape global trade dynamics.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image: "assets/media/1685010487368.jpeg",
+            title:
+              "Reinventing Sustainability for the Digital Age: ESG and the Promise of Web3",
+            description:
+              "Is there a connection between ESG (environmental, social, and governance) and web3? While the relationship is still developing, there are promising signs. Web3 technologies like blockchain and cryptocurrencies are addressing environmental concerns and exploring ways to track supply chains and promote sustainability. Companies such as Dapper Labs, Rarible, Coinbase, and Algorand Foundation are taking steps towards disclosing environmental impact and integrating ESG considerations. However, governance challenges within web3 persist. Developing tailored ESG reporting frameworks for web3 companies is an opportunity for further progress. Embracing ESG can enhance transparency, attract investors, and contribute to a more sustainable future.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/Create_an_image_representing_the_challenges_of_managing_wealth_and_the_importance_of_expert_guidance._Use_visual_elements_to_convey_the_contrast_between_earning_wealth_and_effectively_managing_it..png",
+            title:
+              "Maximizing Your Wealth Potential: Asia SGE's Comprehensive Management Strategies",
+            description:
+              "Managing money can seem harder than earning it. For many people, earning wealth is not the biggest concern; it's the challenge of managing and monitoring that wealth that becomes a hassle. While earning wealth is a natural outcome of excelling in a craft or activity, managing it to make it grow is often overlooked. The thrill of the hunt for success can overshadow the importance of effectively managing assets. However, managing wealth comes with its own set of challenges. It requires expert management of assets, understanding when to let go of certain investments, and seeking second opinions from trusted advisors. At Asia SGE, we offer services to help you navigate these challenges. With our deep network of industry experts, we provide guidance on prevailing trends and assist in making informed decisions about your wealth.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/An_image_depicting_a_stormy_sea_with_a_cargo_ship_carrying_coal_weathering_the_waves,_symbolizing_current_challenges_and_his_potential_to_navigate_through_them.png",
+            title:
+              "The Adani Controversy: A Tale of Billion-Dollar Losses and Resilience",
+            description:
+              "Billionaire Gautam Adani faces damaging allegations that have seen billions wiped from his fortune. However, history has shown that India's business titans can be remarkably resilient.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/A_dramatic_image_illustrating_the_domino_effect_of_Silicon_Valley_Bank's_collapse_on_the_USDC_stablecoin,_symbolizing_the_interconnectedness_of_the_traditional_banking_sector_and_the_crypto_economy._No_text.png",
+            title: "SVB, Circle and the Fed walks into a bar...",
+            description:
+              "The fall of Silicon Valley Bank sent shockwaves through the crypto ecosystem, significantly impacting USDC. This incident underscores the interconnectedness of traditional finance and the crypto world.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/An_image_of_a_scale_unbalanced,_with_a_pile_of_larger_coins_on_one_side_and_the_other_side_with_a_smaller_pile_of_coins.png",
+            title: "China's Mutual Fund Boom: A Tale of Misaligned Incentives",
+            description:
+              "As China's mutual fund market booms, a shift in focus from maximizing investor returns to selling new products emerges, highlighting a potential issue of misaligned incentives.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/An_image_of_an_old_vinyl_record_transforming_into_a_golden_coin,_symbolizing_the_transformation_of_music_into_a_tradable_financial_asset..png",
+            title: "The Financialization of Music: A New Asset Class Emerges",
+            description:
+              "By turning music into a tradable asset class, Clouty™ offers a unique avenue for investment and risk hedging, capitalizing on the trend of buying music rights as a source of steady cash flow.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/An_image_of_a_petrodollar_coin_with_the_silhouette_of_Cristiano_Ronaldo_on_one_side,_and_tech_logos_like_Nintendo,_Microsoft,_Zoom,_and_Alphabet_on_the_other,_symbolizing_the_influence_of_petrodol.png",
+            title:
+              "The Petrodollar's Influence: From Cristiano Ronaldo to Global Finance",
+            description:
+              "The rise in petrodollars, as seen with Saudi Arabia's wealth, significantly shapes global finance and sports, driving high-profile football transfers and investments into tech giants.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image: "assets/media/1670315468395.png",
+            title:
+              "A Tale of Recession: 18th Century Mississippi Bubble and the 2022 Economy",
+            description:
+              "The global economy may seem on the brink, but to comprehend why booms, inflation, and recessions recur, we need to delve into history. The 1715 French bubble offers valuable insights.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/An_image_showing_a_stylized_scale_balancing_two_spheres_labeled_'public_markets'_and_'private_markets'.png",
+            title:
+              "The Intricate Dance between Public and Private Markets: A Blackstone Case Study",
+            description:
+              "Blackstone's BREIT, despite its success, has been susceptible to investor redemptions amid market downturns, highlighting the complex dynamics between public and private markets.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image:
+              "assets/media/An_image_of_a_balance_scale_with_a_pile_of_cash_on_one_side_and_a_bond_labeled_'private_debt'_on_the_other_side,_representing_the_challenge_of_valuing_private_debt.png",
+            title:
+              "The Challenge of Valuing Private Debt: A Look at H2O Asset Management",
+            description:
+              "Valuing private debt is subjective, and as demonstrated by H2O Asset Management's dealings with bonds linked to financier Lars Windhorst, it can lead to significant exposure to illiquid debt.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          {
+            image: "assets/media/1663052309788.jpeg",
+            title: "About Green Bonds and Greenwashing",
+            description:
+              "Hong Kong is becoming a leader in green bond issuances, but rising concerns of greenwashing challenge the integrity of these environmentally-oriented investments.",
+            link: "https://www.linkedin.com/in/bberenson/",
+          },
+          // Add more card data to the bottom as needed (older posts)
+        ];
+
+        const itemsPerPage = 10; // Number of items to show per page
+        let currentPage = 0; // Current page index
+
+        // Read the page parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const pageParam = urlParams.get("page");
+        currentPage = pageParam ? parseInt(pageParam) : 0; // Default to page 0 if not set
+
+        function renderMediaCards() {
+          const start = currentPage * itemsPerPage;
+          const end = start + itemsPerPage;
+          const paginatedCards = mediaCards.slice(start, end);
+
+          const source = document.getElementById(
+            "media-card-template"
+          ).innerHTML;
+          const template = Handlebars.compile(source);
+          const html = template({ mediaCards: paginatedCards });
+          const container = document.querySelector(".media-card-container");
+          container.innerHTML = html;
+
+          // Show/hide pagination links based on current page
+          document.querySelector(".link-newer-posts").style.display =
+            currentPage > 0 ? "block" : "none";
+
+          // Hide the "Older Posts" link if there are no more cards to show
+          if (end >= mediaCards.length) {
+            document.getElementById("link-older-posts").style.display = "none";
+          } else {
+            document.getElementById(
+              "older-posts-link"
+            ).href = `media.html?page=${currentPage + 1}`;
+            document.getElementById("link-older-posts").style.display = "block";
+          }
+
+          document.getElementById(
+            "newer-posts-link"
+          ).href = `media.html?page=${Math.max(currentPage - 1, 0)}`;
+
+          // Trigger scroll animations
+          handleScroll();
+        }
+
+        // Function to handle the animation on scroll
+        const handleScroll = () => {
+          const images = document.querySelectorAll(".media-card-image");
+          images.forEach((img) => {
+            const rect = img.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+              img.classList.add("show"); // Add the class to trigger animation
+            }
+          });
+        };
+
+        // Listen for scroll events
+        window.addEventListener("scroll", handleScroll);
+
+        // Initial render of media cards
+        renderMediaCards();
+      });
+    </script>
+  </body>
+</html>
