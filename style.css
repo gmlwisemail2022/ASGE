@@ -899,6 +899,8 @@ body {
   position: relative;
   height: 70vh;
   overflow: hidden;
+  display: flex; /* Add flexbox for better layout control */
+  justify-content: center; /* Center child elements */
 }
 
 .solutions-main-content-image {
@@ -919,8 +921,8 @@ body {
   z-index: 1; /* Ensure it appears above the background */
   text-align: center; /* Center text */
   max-width: 90%; /* Prevent text overflow */
-  white-space: nowrap; /* Prevent text wrapping */
-  overflow: hidden; /* Hide overflow */
+  width: 90%; /* Set width to 90% */
+
   text-overflow: ellipsis; /* Add ellipsis for overflowed text */
 }
 
@@ -932,31 +934,31 @@ body {
 /* Media query adjustments */
 @media (max-width: 800px) {
   .services-title {
-    font-size: clamp(
-      2.2rem,
-      8vw + 1rem,
-      3.5rem
-    ); /* Adjust size for medium screens */
+    font-size: clamp(2.2rem, 8vw + 1rem, 3.5rem);
   }
 }
 
 @media (max-width: 600px) {
   .services-title {
-    font-size: clamp(
-      2rem,
-      12vw + 1rem,
-      2.5rem
-    ); /* Adjust size for smaller screens */
+    font-size: clamp(2rem, 12vw + 1rem, 2.5rem);
+    /* fix truncation on smaller screens */
+    overflow-wrap: break-word !important; /* Allow wrapping of long words */
+    word-break: break-word !important; /* Break long words if needed */
+    white-space: normal; /* Prevent text wrapping */
+    overflow: normal; /* Hide overflow */
+    text-overflow: normal; /* Add ellipsis for overflowed text */
   }
 }
 
 @media (max-width: 400px) {
   .services-title {
-    font-size: clamp(
-      1.5rem,
-      10vw + 1rem,
-      2rem
-    ); /* Further adjustment for very small screens */
+    font-size: clamp(1.5rem, 10vw + 1rem, 2rem);
+    /* fix truncation on smaller screens */
+    overflow-wrap: break-word !important; /* Allow wrapping of long words */
+    word-break: break-word !important; /* Break long words if needed */
+    white-space: normal; /* Prevent text wrapping */
+    overflow: normal; /* Hide overflow */
+    text-overflow: normal; /* Add ellipsis for overflowed text */
   }
 }
 
