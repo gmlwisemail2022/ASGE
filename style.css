@@ -437,6 +437,10 @@ body {
   margin-top: 5%; /* Remove default margin */
   margin-bottom: 2%; /* Remove default margin */
   color: black; /* Ensure the text color is black */
+  /* add to fix truncation issue*/
+  max-width: 100%; /* Ensure title can use full width */
+  overflow-wrap: break-word; /* Allow wrapping */
+  word-break: break-word; /* Break long words */
 }
 .home-subtitle {
   font-family: "Merriweather", serif; /* Use Merriweather for H4 */
@@ -490,6 +494,7 @@ body {
   }
   .home-title {
     font-size: 1.5rem;
+    max-width: 90%; /* Ensure it can wrap */
   }
   .home-subtitle {
     font-size: 1rem;
