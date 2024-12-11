@@ -894,7 +894,7 @@ body {
 
 /********************************/
 /** styling for solutions.html **/
-
+/*solutions-main-content currently not used - replaced by about-main-content */
 .solutions-main-content {
   position: relative;
   height: 70vh;
@@ -1221,7 +1221,7 @@ body {
 
 /********************************/
 /** styling for team.html **/
-
+/* team-main-content currently not used - replaced by about-main-content */
 .team-main-content {
   position: relative;
   height: 70vh;
